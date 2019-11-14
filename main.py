@@ -12,3 +12,20 @@ def analyser_commande():
 if __name__ == "main":
     analyser_commande()
 
+#Fonction 2
+
+def damier():
+    ligne = ''
+    for i in range(0,20):
+        if i == 0:
+            ligne += '   ----------------------------------- \n'
+        if i % 2 == 0 and i != 18:
+            ligne += '  |                                   |\n'
+        if i == 18:
+            ligne += '--|----------------------------------- \n'
+        if i == 19:
+            ligne += '  | 1   2   3   4   5   6   7   8   9'
+        else:
+            ligne += '  | .   .   .   .   .   .   .   .   . |\n'
+    print(ligne)
+print(damier())
