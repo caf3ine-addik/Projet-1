@@ -14,12 +14,14 @@ if __name__ == "main":
     analyser_commande()
 
 #Fonction 2
-def afficher_damier_ascii():
-    haut = f'Légende: 1=idul, 2=automate\n'
+def afficher_damier_ascii(state_0):
+    json.loads(state_0)
+    haut = f'Légende: 1={state_0["joueurs"][0]['nom']}, 2=automate\n'
     haut +='   -----------------------------------\n'
     bas = '--|-----------------------------------\n'
     bas +='  | 1   2   3   4   5   6   7   8   9'
     dam_vide = []
+    #creation de la liste de listes
     for i in range(18, 1, -1):
         pair = list(f"{i//2} | .   .   .   .   .   .   .   .   . |")
         impair = list('  |                                   |')
@@ -27,13 +29,11 @@ def afficher_damier_ascii():
             dam_vide.append(pair)
         else:
             dam_vide.append(impair)
-    
-    
-    cadre = []
+    cadre = [] # rendu du damier
     for ligne in dam_vide:
         cadre += ligne + ['\n']
     damier = ''.join(cadre)
 
     print(haut + damier + bas)
 
-afficher_damier_ascii()
+afficher_damier_ascii(state_0)
