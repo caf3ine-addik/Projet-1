@@ -15,14 +15,14 @@ if __name__ == "main":
 #Fonction 2
 
 def afficher_damier_ascii():
-    haut = 'Légende: 1=idul, 2=automate\n'
-    haut +='  -----------------------------------\n'
+    haut = f'Légende: 1=idul, 2=automate\n'
+    haut +='   -----------------------------------\n'
     bas = '--|-----------------------------------\n'
     bas +='  | 1   2   3   4   5   6   7   8   9'
-    dam_vide=[]
-    for i in range(18,1,-1):
-        pair = list(f"{i//2} | .   .   .   .   .   .   .   .   . |\n")
-        impair = list('  |                                   |\n')
+    dam_vide = []
+    for i in range(18, 1, -1):
+        pair = list(f"{i//2} | .   .   .   .   .   .   .   .   . |")
+        impair = list('  |                                   |')
         if i%2 == 0:
             dam_vide.append(pair)
         else:
