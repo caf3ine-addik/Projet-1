@@ -6,7 +6,7 @@ import json
 
 state_0 = {
     "joueurs": [
-        {"nom": "idul", "murs": 7, "pos": [5, 5]}, 
+        {"nom": "1725", "murs": 7, "pos": [5, 5]}, 
         {"nom": "automate", "murs": 3, "pos": [8, 6]}
     ], 
     "murs": {
@@ -31,7 +31,7 @@ def afficher_damier_ascii(state_0):
     bas = '--|-----------------------------------\n'
     bas +='  | 1   2   3   4   5   6   7   8   9'
     dam_vide = []
-    #creation de la liste de listes
+#creation damier vide
     for i in range(18, 1, -1):
         pair = list(f"{i//2} | .   .   .   .   .   .   .   .   . |")
         impair = list('  |                                   |')
@@ -39,9 +39,17 @@ def afficher_damier_ascii(state_0):
             dam_vide.append(pair)
         else:
             dam_vide.append(impair)
-    cadre = [] # rendu du damier
+#position joueurs       
+    for i in range(2):
+        dam_vide[18-2*state_0["joueurs"][i]["pos"][1]][4*state_0["joueurs"][i]["pos"][1]] = f'{1+i}'
+#position des murs 
+
+#rendu final   
+    cadre = [] 
     for ligne in dam_vide:
         cadre += ligne + ['\n']
     damier = ''.join(cadre)
 
     print(haut + damier + bas)
+
+afficher_damier_ascii(state_0)
