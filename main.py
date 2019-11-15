@@ -14,18 +14,25 @@ if __name__ == "main":
 
 #Fonction 2
 
-def damier():
-    ligne = ''
-    for i in range(0,20):
-        if i == 0:
-            ligne += '   -----------------------------------'
-        if i % 2 == 0 and i != 18:
-            ligne += '  |                                   |'
-        if i == 18:
-            ligne += '--|----------------------------------- \n'
-        if i == 19:
-            ligne += '  | 1   2   3   4   5   6   7   8   9\n'
-        if (i % 2) != 0:
-            ligne += '  | .   .   .   .   .   .   .   .   . |\n'
-    print(ligne)
-print(damier())
+def afficher_damier_ascii():
+    haut = 'Légende: 1=idul, 2=automate\n'
+    haut +='  -----------------------------------\n'
+    bas = '--|-----------------------------------\n'
+    bas +='  | 1   2   3   4   5   6   7   8   9'
+    dam_vide=[]
+    for i in range(18,1,-1):
+        pair = list(f"{i//2} | .   .   .   .   .   .   .   .   . |\n")
+        impair = list('  |                                   |\n')
+        if i%2 == 0:
+            dam_vide.append(pair)
+        else:
+            dam_vide.append(impair)
+    
+    cadre = []
+    for ligne in dam_vide:
+        cadre += ligne + ['\n']
+    damier = ''.join(cadre)
+
+    print(haut + damier + bas)
+
+afficher_damier_ascii()
