@@ -1,6 +1,7 @@
 # fonction 1
 
 import argparse
+import json
 
 
 def analyser_commande():
@@ -13,7 +14,6 @@ if __name__ == "main":
     analyser_commande()
 
 #Fonction 2
-
 def afficher_damier_ascii():
     haut = f'Légende: 1=idul, 2=automate\n'
     haut +='   -----------------------------------\n'
@@ -27,6 +27,7 @@ def afficher_damier_ascii():
             dam_vide.append(pair)
         else:
             dam_vide.append(impair)
+    
     
     cadre = []
     for ligne in dam_vide:
