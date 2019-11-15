@@ -19,7 +19,7 @@ def analyser_commande():
     parser.add_argument('-l', '--lister', metavar='', help= 'Lister les identifiants de vos 20 dernières parties.')
     return parser.parse_args()
 
-if __name__ == "main":
+if __name__ == "__main__":
     analyser_commande()
 
 #Fonction 2
@@ -55,4 +55,3 @@ def afficher_damier_ascii(state_0):
         cadre += ligne + ['\n']
     damier = ''.join(cadre)
     print(haut + damier + bas)
-afficher_damier_ascii(state_0)
