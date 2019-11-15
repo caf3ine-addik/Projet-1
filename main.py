@@ -40,14 +40,15 @@ def afficher_damier_ascii(state_0):
 #position joueurs       
     for i in range(2):
         dam_vide[18-2*state_0["joueurs"][i]["pos"][1]][4*state_0["joueurs"][i]["pos"][1]] = f'{1+i}'
-#position des murs 
-
+#position des murs horizontaux
+    for i in range(len(state_0["murs"]["horizontaux"])):
+        for j in range(7):
+            dam_vide[19-2*state_0["murs"]["horizontaux"][i][1]][4*state_0["murs"]["horizontaux"][i][0] + j] = '-'
 #rendu final   
     cadre = [] 
     for ligne in dam_vide:
         cadre += ligne + ['\n']
     damier = ''.join(cadre)
-
     print(haut + damier + bas)
 
 afficher_damier_ascii(state_0)
