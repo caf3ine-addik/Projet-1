@@ -44,7 +44,11 @@ def afficher_damier_ascii(state_0):
     for i in range(len(state_0["murs"]["horizontaux"])):
         for j in range(7):
             dam_vide[19-2*state_0["murs"]["horizontaux"][i][1]][4*state_0["murs"]["horizontaux"][i][0] + j] = '-'
-#rendu final   
+#position murs verticaux
+    for i in range(len(state_0["murs"]["verticaux"])):
+        for j in range(3):
+            dam_vide[18 - 2*state_0["murs"]["verticaux"][i][1] - j][4*state_0["murs"]["verticaux"][i][0] - 2] = '|'
+#rendu final  
     cadre = [] 
     for ligne in dam_vide:
         cadre += ligne + ['\n']
