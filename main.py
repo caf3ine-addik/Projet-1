@@ -1,6 +1,7 @@
 # fonction 1
 
 import argparse
+import json
 
 
 def analyser_commande():
