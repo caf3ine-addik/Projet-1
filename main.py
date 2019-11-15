@@ -45,5 +45,3 @@ def afficher_damier_ascii(state_0):
     damier = ''.join(cadre)
 
     print(haut + damier + bas)
-
-afficher_damier_ascii(state_0)
