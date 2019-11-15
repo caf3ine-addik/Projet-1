@@ -1,6 +1,14 @@
 # fonction 1
+<<<<<<< HEAD
 import json
 import argparse
+=======
+
+import argparse
+import json
+
+
+>>>>>>> 0b7aa8e6c7d8145d27d7975be41b8bacf6274bdf
 state_0 = {
     "joueurs": [
         {"nom": "1725", "murs": 7, "pos": [5, 5]}, 
@@ -12,6 +20,7 @@ state_0 = {
     }
 }
 
+<<<<<<< HEAD
 
 def analyser_commande():
     parser = argparse.ArgumentParser(description= "Jeu Quoridor - Phase 1")
@@ -19,6 +28,13 @@ def analyser_commande():
     parser.add_argument('-l', '--lister', metavar='', help= 'Lister les identifiants de vos 20 dernières parties.')
     args = parser.parse_args()
     return args
+=======
+def analyser_commande():
+    parser = argparse.ArgumentParser(description = "Jeu Quoridor - Phase 1")
+    parser.add_argument('idul', type=str, help='IDUL du joeur.')
+    parser.add_argument('-l', '--lister', metavar='', help= 'Lister les identifiants de vos 20 dernières parties.')
+    return parser.parse_args()
+>>>>>>> 0b7aa8e6c7d8145d27d7975be41b8bacf6274bdf
 
 if __name__ == "main":
     analyser_commande()
@@ -42,7 +58,11 @@ def afficher_damier_ascii(state_0):
     for i in range(2):
         dam_vide[18-2*state_0["joueurs"][i]["pos"][1]][4*state_0["joueurs"][i]["pos"][1]] = f'{1+i}'
 #position des murs 
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 0b7aa8e6c7d8145d27d7975be41b8bacf6274bdf
 #rendu final   
     cadre = [] 
     for ligne in dam_vide:
