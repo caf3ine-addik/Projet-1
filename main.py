@@ -39,20 +39,20 @@ def afficher_damier_ascii(state_0):
             dam_vide.append(impair)
 #position joueurs       
     for i in range(2):
-        dam_vide[18-2*state_0["joueurs"][i]["pos"][1]][4*state_0["joueurs"][i]["pos"][1]] = f'{1+i}'
+        dam_vide[18-2*state_0["joueurs"][i]["pos"][1]][4*state_0["joueurs"][i]["pos"][0]] = f'{1+i}'
 #position des murs horizontaux
     for i in range(len(state_0["murs"]["horizontaux"])):
         for j in range(7):
-            dam_vide[19-2*state_0["murs"]["horizontaux"][i][1]][4*state_0["murs"]["horizontaux"][i][0] + j] = '-'
+            dam_vide[19-2*state_0["murs"]["horizontaux"][i][1]][4*state_0["murs"]["horizontaux"][i][0] + j-1] = '-'
 #position murs verticaux
-    for i in range(len(state_0["murs"]["verticaux"])):
-        for j in range(3):
-            dam_vide[18 - 2*state_0["murs"]["verticaux"][i][1] - j][4*state_0["murs"]["verticaux"][i][0] - 2] = '|'
+    for x, y in state_0['murs']['verticaux']:
+        dam_vide[18-2*y][x*4 - 2] = "|"
+        dam_vide[17-2*y][x*4 - 2] = "|"
+        dam_vide[16-2*y][x*4 - 2] = "|"
 #rendu final  
     cadre = [] 
     for ligne in dam_vide:
         cadre += ligne + ['\n']
     damier = ''.join(cadre)
     print(haut + damier + bas)
-
 afficher_damier_ascii(state_0)
