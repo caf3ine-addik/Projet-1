@@ -26,7 +26,7 @@ def lister_parties(idul):
 #fonction 4
 def débuter_partie(idul):
     url_base = 'https://python.gel.ulaval.ca/quoridor/api/'
-    rep = requests.post(url_base+'débuter/', data={'idul': f'{idul}'})
+    rep = requests.post(url_base + 'débuter/', data = {'idul': f'{idul}'})
     rep = rep.json()
     try:
         if "message" in rep:
@@ -40,7 +40,7 @@ def débuter_partie(idul):
 def jouer_coup(id_partie, type_coup, position):
     url_base = 'https://python.gel.ulaval.ca/quoridor/api/'
 
-    rep = requests.post(url_base+'jouer/', data={'id': f'{id_partie}', 'type': f'{type_coup}', 'pos': f'{position}'})
+    rep = requests.post(url_base + 'jouer/', data = {'id': f'{id_partie}', 'type': f'{type_coup}', 'pos': f'{position}'})
     
     rep = rep.json()
     try:
