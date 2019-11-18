@@ -1,5 +1,6 @@
 import argparse
 import json
+from api import lister_parties, débuter_partie, jouer_coup
 
 
 state_0 = {
@@ -17,7 +18,11 @@ def analyser_commande():
     parser = argparse.ArgumentParser(description = "Jeu Quoridor - Phase 1")
     parser.add_argument('idul', type=str, help='IDUL du joeur.')
     parser.add_argument('-l', '--lister', metavar='', help= 'Lister les identifiants de vos 20 dernières parties.')
-    return parser.parse_args()
+    args = parser.parse_args()
+    analyser_commande.idul = args.idul
+    if args.lister:
+        return lister_parties(args.idul)
+    return args
 
 if __name__ == "__main__":
     analyser_commande()
@@ -55,3 +60,20 @@ def afficher_damier_ascii(state_0):
         cadre += ligne + ['\n']
     damier = ''.join(cadre)
     print(haut + damier + bas)
+
+tuple_id_état = débuter_partie(analyser_commande.idul)
+if len(tuple_id_état) > 1:
+    afficher_damier_ascii(tuple_id_état[1])
+    while True:
+        a = input('type de coup (D, MH, MV): ')
+        b = input('''position de l'action (x,y): ''')
+        move = jouer_coup(tuple_id_état[0], a, b)
+        if type(move) == str:
+            afficher_damier_ascii(move)
+            print(move)
+            break
+        afficher_damier_ascii(move)
+            
+            
+else:
+    print(tuple_id_état)
