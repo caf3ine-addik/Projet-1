@@ -1,5 +1,4 @@
 import argparse
-import json
 from api import lister_parties, débuter_partie, jouer_coup
 
 
@@ -12,7 +11,6 @@ def analyser_commande():
     if args.lister:
         return lister_parties(args.idul)
     return args
-
 if __name__ == "__main__":
     analyser_commande()
 
@@ -50,19 +48,17 @@ def afficher_damier_ascii(rep):
     damier = ''.join(cadre)
     print(haut + damier + bas)
 
-id_state = débuter_partie(analyser_commande.idul)
-if len(id_state) > 1:
-    afficher_damier_ascii(id_state[1])
+game = débuter_partie(analyser_commande.idul)
+if len(game) > 1:
+    afficher_damier_ascii(game[1])
     while True:
         a = input('type de coup (D, MH, MV): ')
         b = input('''position de l'action (x,y): ''')
-        move = jouer_coup(id_state[0], a, b)
+        move = jouer_coup(game[0], a, b)
         if type(move) == str:
             afficher_damier_ascii(move)
             print(move)
             break
-        afficher_damier_ascii(move)
-            
-            
+        afficher_damier_ascii(move)          
 else:
-    print(id_state)
+    print(game)
