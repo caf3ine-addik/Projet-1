@@ -29,7 +29,7 @@ def afficher_damier_ascii(rep):
             dam_vide.append(pair)
         else:
             dam_vide.append(impair)
-#position joueurs       
+#position joueurs
     for i in range(2):
         dam_vide[18 - 2 * rep["joueurs"][i]["pos"][1]][4 * rep["joueurs"][i]["pos"][0]] = f'{1 + i}'
 #position des murs horizontaux
@@ -42,7 +42,7 @@ def afficher_damier_ascii(rep):
         dam_vide[17 - 2 * y][x * 4 - 2] = "|"
         dam_vide[16 - 2 * y][x * 4 - 2] = "|"
 #rendu final  
-    cadre = [] 
+    cadre = []
     for ligne in dam_vide:
         cadre += ligne + ['\n']
     damier = ''.join(cadre)
@@ -59,6 +59,6 @@ if len(game) > 1:
             afficher_damier_ascii(move)
             print(move)
             break
-        afficher_damier_ascii(move)          
+        afficher_damier_ascii(move)      
 else:
     print(game)
